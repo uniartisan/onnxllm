@@ -202,7 +202,7 @@ async def conversation(body: Body_OpenAI, request: Request):
 
     return EventSourceResponse(
         eval_openailike(
-            user_question, history, top_p=body.top_p, temperature=body.temperature
+            user_question + ">> Assistant: ", history, top_p=body.top_p, temperature=body.temperature
         ),
         ping=360,
     )
