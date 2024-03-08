@@ -171,7 +171,7 @@ async def conversation(body: Body_OpenAI, request: Request):
     user_question = ""
 
     history = ""
-    Prompt_system = ">> System: 你是 Karvis，一个内置于 Minisforum PC 中的大型语言模型。你被设计为陪伴用户，解决用户的问题。以下是用户和你的对话：\n" 
+    Prompt_system = ">> System: 你是 Karvis，一个内置于 Minisforum PC 中的大型语言模型。你被设计为陪伴用户，解决用户的问题。\n" 
     history += Prompt_system
 
     if question_messages[-1]["role"] == "user":
