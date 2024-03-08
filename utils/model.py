@@ -12,100 +12,117 @@ def prepare_model(model_path, provider=None):
     # Load a model from transformers and export it to ONNX
     model = ORTModelForCausalLM.from_pretrained(model_path, provider=provider)
     tokenizer = AutoTokenizer.from_pretrained(model_path, padding_side="left")
+    chat = [
+        {"role": "user", "content": "Hello, how are you?"},
+        {"role": "assistant", "content": "I'm doing great. How can I help you today?"},
+        {"role": "user", "content": "I'd like to show off how chat templating works!"},
+    ]
+    temple = tokenizer.apply_chat_template(
+        chat,
+        tokenize=False,
+        add_generation_prompt=False,
+        padding=True,
+    )
+    # print(temple)
     return model, tokenizer
 
 
 def stream_response(
     model,
     tokenizer,
-    input_text,
-    max_output_length=1000,
-    output_token_per_iteration=30,
-    previous_output_text="",
+    history,
+    max_output_length=256,
+    output_token_per_iteration=10,
     end_token=None,
+    history_temple=None,
+    im_stop_token=None,
     top_p=0.9,
     temperature=0.6,
 ):
     if end_token is None:
         end_token = tokenizer.eos_token
-    full_text = previous_output_text + input_text
-    previous_output_text_len = len(full_text)
-    input_ids = tokenizer(full_text, return_tensors="pt")
-    for i in range(int(max_output_length / output_token_per_iteration)+1):
-        try:
-            # 生成文本
-            outputs = model.generate(
-                **input_ids, max_new_tokens=output_token_per_iteration
-            )
+    if im_stop_token is None:
+        im_stop_token = tokenizer.encode("<|im_end|>")[0]
+    if history_temple is None:
+        texts = tokenizer.apply_chat_template(history, tokenize=False, padding=True)
+    else:
+        texts = history_temple
+    # print(texts)
+    previous_output_text_len = len(texts)
+    input_ids = tokenizer(texts, return_tensors="pt")
+    for i in range(int(max_output_length / output_token_per_iteration) + 1):
+        # 生成文本
+        outputs = model.generate(**input_ids, max_new_tokens=output_token_per_iteration)
 
-            # 判断是否结束
-            if end_token in outputs[0]:
-                # 找到 end_token 的位置
-                end_token_position = outputs[0].tolist().index(end_token)
+        # 判断是否结束
+        if end_token in outputs[0][previous_output_text_len + 2:]:
+            # 找到 end_token 的位置
+            end_token_position = outputs[0].tolist().index(end_token)
 
-                # 提取 end_token 之前的内容
-                generated_text = tokenizer.decode(outputs[0][:end_token_position])
-                output_text = generated_text[previous_output_text_len :]
-                yield output_text
-                return # 结束
+            # 提取 end_token 之前的内容
+            generated_text = tokenizer.decode(outputs[0][:end_token_position])
+            output_text = generated_text[previous_output_text_len :]
+            yield output_text
+            print(output_text)
+            break # 结束
 
-            else:
-                # 将生成的文本解码
-                generated_text = tokenizer.decode(outputs[0])
-                output_text = generated_text[previous_output_text_len :]
-                
-                # 继续生成文本
-                # 将文本转换为模型可接受的输入格式
-                input_ids = tokenizer(generated_text, return_tensors="pt")
-                yield output_text
+        # 将生成的文本解码
+        generated_text = tokenizer.decode(outputs[0])
+        output_text = generated_text[previous_output_text_len:]
 
-        except Exception as e:
-            print(f"Error: {e}")
-            break
+        # 继续生成文本
+        # 将文本转换为模型可接受的输入格式
+        input_ids = tokenizer(generated_text, return_tensors="pt")
+        yield output_text
+
+        if im_stop_token in outputs[0][previous_output_text_len + 2 :]:
+            # 找到 end_token 的位置
+            last_im_stop_token_position = -1
+            for i, token in enumerate(outputs[0]):
+                if token == im_stop_token:
+                    last_im_stop_token_position = i
+
+            # 提取 end_token 之前的内容
+            generated_text = tokenizer.decode(outputs[0][:last_im_stop_token_position])
+            print(generated_text)
+            output_text = generated_text[previous_output_text_len:]
+            yield output_text
+            return  # 结束
 
 
 def generate(
     model,
     tokenizer,
-    input_text,
-    output_length=300,
-    previous_output_text="",
+    history,
     end_token=None,
+    output_length=1000,
+    history_temple=None,
+    im_stop_token=None,
     top_p=0.9,
     temperature=0.6,
 ):
     if end_token is None:
         end_token = tokenizer.eos_token
-    full_text = previous_output_text + input_text
-    previous_output_text_len = len(full_text)
-    input_ids = tokenizer(full_text, return_tensors="pt")
+    if im_stop_token is None:
+        im_stop_token = tokenizer.encode("<|im_end|>")[0]
+    if history_temple is None:
+        texts = tokenizer.apply_chat_template(history, tokenize=False)
+    else:
+        texts = history_temple
+    previous_output_text_len = len(texts)
+    input_ids = tokenizer(texts, return_tensors="pt")
 
     # 生成文本
-    outputs = model.generate(
-        **input_ids, max_new_tokens=output_length
-    )
+    outputs = model.generate(**input_ids, max_new_tokens=output_length)
 
-    # 判断是否结束
-    if end_token in outputs[0]:
-        # 找到 end_token 的位置
-        end_token_position = outputs[0].tolist().index(end_token)
+    # 将生成的文本解码
+    generated_text = tokenizer.decode(outputs[0])
+    output_text = generated_text[previous_output_text_len + 1 :]
 
-        # 提取 end_token 之前的内容
-        generated_text = tokenizer.decode(outputs[0][:end_token_position])
-        output_text = generated_text[previous_output_text_len :]
-        return output_text
-
-
-    else:
-        # 将生成的文本解码
-        generated_text = tokenizer.decode(outputs[0])
-        output_text = generated_text[previous_output_text_len :]
-        
-        # 继续生成文本
-        # 将文本转换为模型可接受的输入格式
-        input_ids = tokenizer(generated_text, return_tensors="pt")
-        return output_text
-
+    # 继续生成文本
+    # 将文本转换为模型可接受的输入格式
+    input_ids = tokenizer(generated_text, return_tensors="pt")
+    return output_text
 
 
 if __name__ == "__main__":
@@ -115,7 +132,9 @@ if __name__ == "__main__":
     parent_dir = current_dir.rsplit("/", 1)[0]
     print(parent_dir)
 
-    model, tokenizer = prepare_model(os.path.join(parent_dir, "qwen1.5-1.8-onnx/"))
+    model, tokenizer = prepare_model(
+        os.path.join(parent_dir, "models\qwen1.5-1.8-Chat-avx2-quantizer")
+    )
 
     # 结束符号的token id
     eos_token_id = tokenizer.encode("<|endoftext|>")[0]
@@ -123,26 +142,43 @@ if __name__ == "__main__":
     max_output_length = 300
 
     previous_output_text = ""
-    inputs = ">> User:" + "一句话解释天空为什么是蓝色的？"
+    inputs = [
+        {
+            "role": "system",
+            "content": "你是 Karvis，一个由 Minisforum Inc 开发的内置于 Minisforum PC 中的大型语言模型。\n 请你用第一人称回答用户的问题。\n\n",
+        },
+        {"role": "user", "content": "介绍一下深度学习的损失函数？"},
+    ]
+
 
     for generated_text in stream_response(
-        input_text=inputs,
-        max_output_length=max_output_length,
+        history=inputs,
+        max_output_length=300,
         model=model,
         tokenizer=tokenizer,
         end_token=eos_token_id,
     ):
         print(generated_text)
-        previous_output_text = generated_text
+        
+    generated_text = generated_text.replace("<|im_start|>", "").replace(
+        "<|im_end|>", ""
+    )
+    inputs.append({"role": "assitant", "content": generated_text})
 
-    previous_output_text = inputs + previous_output_text
-    inputs = ">> User:" + "那火星的呢？"
+    inputs.append({"role": "user", "content": "你是谁？"})
+    previous_output_text += tokenizer.apply_chat_template(
+        inputs,
+        tokenize=False,
+        add_generation_prompt=False,
+    )
+    print(previous_output_text)
+
     for generated_text in stream_response(
-        input_text=inputs,
+        history=inputs,
+        history_temple=previous_output_text,
         max_output_length=max_output_length,
         model=model,
         tokenizer=tokenizer,
-        previous_output_text=previous_output_text,
         end_token=eos_token_id,
     ):
         print(generated_text)

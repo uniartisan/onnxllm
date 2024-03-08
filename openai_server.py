@@ -55,7 +55,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-init_model("qwen1.5-1.8-onnx")
+init_model("models\qwen1.5-7-Chat-avx2-quantizer")
 
 
 def ngrok_connect():
@@ -102,7 +102,7 @@ def read_root():
 
 @app.post("/v1/chat/completions")
 async def conversation(body: Body_OpenAI, request: Request):
-    async def eval_openailike(input, history, top_p=0.7, temperature=0.95):
+    async def eval_openailike(history, top_p=0.7, temperature=0.95):
         result = {}
         result["id"] = str(uuid.uuid4())
         result["model"] = "gpt-3.5-turbo"
@@ -116,12 +116,12 @@ async def conversation(body: Body_OpenAI, request: Request):
             for response_re in stream_response(
                 model=chat_model,
                 tokenizer=tokenizer,
-                input_text=input,
-                previous_output_text=history,
+                history=history,
                 max_output_length=max(chatmodel_onnx["max_tokens"], body.max_tokens),
                 end_token=tokenizer.encode("<|endoftext|>")[0],
+                im_stop_token=tokenizer.encode("<|im_end|>")[0],
                 top_p=top_p,
-                temperature=temperature,
+                temperature=temperature,             
             ):
                 response_re = response_re.replace(
                     chatmodel_onnx["im_start"], ""
@@ -150,8 +150,7 @@ async def conversation(body: Body_OpenAI, request: Request):
             response_re = generate(
                 model=chat_model,
                 tokenizer=tokenizer,
-                input_text=input,
-                previous_output_text=history,
+                history=history,
                 output_length=max(chatmodel_onnx["max_tokens"], body.max_tokens),
                 end_token=tokenizer.encode("<|endoftext|>")[0],
                 top_p=top_p,
@@ -173,46 +172,23 @@ async def conversation(body: Body_OpenAI, request: Request):
     if len(question_messages) == 0:
         raise HTTPException(status.HTTP_400_BAD_REQUEST, "No Question Found")
 
-    user_question = ""
 
-    history = ""
-    Prompt_system = ">> System: 你是 Karvis，一个内置于 Minisforum PC 中的大型语言模型。你被设计为陪伴用户，解决用户的问题。\n"
-    history += Prompt_system
 
-    if question_messages[-1]["role"] == "user":
-        user_question = question_messages[-1]["content"]
+    Prompt_system = "你是 Karvis，一个由 Minisforum Inc 开发的内置于 Minisforum PC 中的大型语言模型。请你尽全力回答用户的问题。"
+    history = [{"role": "system", "content": Prompt_system}]
 
-    lenth = len(question_messages)
-    if lenth == 1:
-        pass
-    elif lenth == 2:
-        # history = _history
-        history += ">> User: " + question_messages[0]["content"]
-        # user_question = ">> User: " + question_messages[-1]["content"]
-    else:
-        # assert (lenth % 2 == 0)
-        # history = _history
-        history += ">> User: " + question_messages[0]["content"]
-        for i in range(1, lenth - 1):
-            message = question_messages[i]
-            # print(message)
-            if message["role"] == "user":
-                history_input = message["content"]
-            elif message["role"] == "system" or message["role"] == "assistant":
-                history_answer = message["content"]
 
-            if i % 2 == 0:
-                history += ">> User: " + history_input
-                history += ">> Assistant: " + history_answer
+    for i in question_messages:
+        history.append(i)
+    print(history)
 
     return EventSourceResponse(
         eval_openailike(
-            user_question + ">> Assistant: ",
             history,
             top_p=body.top_p,
             temperature=body.temperature,
         ),
-        ping=360,
+        ping=120,
     )
 
 
