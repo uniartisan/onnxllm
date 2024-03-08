@@ -1,0 +1,4 @@
+*.pyc
+qwen1.5-1.8-onnx/*
+qwen1.5-7-onnx/*
+opt-1.3b-onnx/*

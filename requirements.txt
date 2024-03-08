@@ -1,0 +1,6 @@
+gradio
+fastapi
+pydantic
+uvicorn
+sse_starlette
+pyngrok
