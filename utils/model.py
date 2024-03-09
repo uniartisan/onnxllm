@@ -56,7 +56,7 @@ def stream_response(
 
     input_ids = tokenizer(texts, return_tensors="pt")
     generation_kwargs = dict(input_ids, streamer=streamer, max_new_tokens=max_output_length, 
-                             eos_token_id=im_stop_token)
+                             eos_token_id=im_stop_token , do_sample=True, top_p=top_p, temperature=temperature)
     thread = Thread(target=model.generate, kwargs=generation_kwargs)
     thread.start()
     previous_output_text_len = len(texts)
@@ -92,7 +92,7 @@ def generate(
     input_ids = tokenizer(texts, return_tensors="pt")
 
     # 生成文本
-    outputs = model.generate(**input_ids, max_new_tokens=output_length)
+    outputs = model.generate(**input_ids, max_new_tokens=output_length, do_sample=True, top_p=top_p, temperature=temperature, eos_token_id=im_stop_token)
 
     # 将生成的文本解码
     generated_text = tokenizer.decode(outputs[0])
