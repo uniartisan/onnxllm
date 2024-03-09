@@ -52,6 +52,7 @@ def stream_response(
         texts = tokenizer.apply_chat_template(history, tokenize=False, padding=True)
     else:
         texts = history_temple
+    texts += "<|im_start|>assistant"
 
     input_ids = tokenizer(texts, return_tensors="pt")
     generation_kwargs = dict(input_ids, streamer=streamer, max_new_tokens=max_output_length, 
@@ -62,7 +63,7 @@ def stream_response(
     generated_text = ""
     for new_text in streamer:
         generated_text += new_text
-        yield generated_text[previous_output_text_len+len("<|im_start|>assistant"):-len("<|im_end|>")]
+        yield generated_text[previous_output_text_len:-len("<|im_end|>")]
 
 
 

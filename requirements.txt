@@ -4,5 +4,7 @@ pydantic
 uvicorn
 sse_starlette
 pyngrok
+onnx
+transformers
 onnxruntime
-optimum git+https://github.com/uniartisan/optimum.git
+git+https://github.com/uniartisan/optimum.git#egg=optimum
