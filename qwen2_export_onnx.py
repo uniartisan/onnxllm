@@ -10,8 +10,8 @@ from optimum.onnxruntime import ORTOptimizer
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--model", type=str, default="Qwen/Qwen1.5-1.8B-Chat")
-    parser.add_argument("--save_dir", type=str, default="models/qwen1.5-1.8-Chat")
+    parser.add_argument("--model", type=str, default="Qwen/Qwen1.5-0.5B-Chat")
+    parser.add_argument("--save_dir", type=str, default="models/qwen1.5-0.5-Chat")
     parser.add_argument("--onnx", type=str, default="true", help="Export pytorch to ONNX format.", choices=["true", "false"])
     parser.add_argument(
         "--quantize",
