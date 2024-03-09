@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\V3\Desktop\RyzenAI-SW\example\transformers\ops\cpp\build\temp.win-amd64-cpython-39\Release\RyzenAI\CMakeFiles\862e209e8875d6053b12f23d98a2dded\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{4BFEDFCF-923A-325B-9E36-D350032686A3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

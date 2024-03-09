@@ -14,7 +14,8 @@ import uuid
 from contextlib import asynccontextmanager
 
 
-from utils.model import prepare_model, stream_response, generate
+from modelutil.model import prepare_model, stream_response, generate
+from modelutil.amd_opt import get_aie_model
 
 chat_model = None
 tokenizer = None
@@ -24,7 +25,7 @@ stop_threads = False
 def init_model(modelpath):
     global tokenizer, chat_model, last_used_time
     if chat_model is None:
-        chat_model, tokenizer = prepare_model(modelpath)
+        chat_model, tokenizer = get_aie_model()
         print("Model loaded")
     last_used_time = time.time()
     
@@ -69,7 +70,7 @@ chatmodel_onnx = {
 async def lifespan(app: FastAPI):
     # Load the ML model
     global stop_threads
-    init_model(r"models/qwen1.5-1.8-avx2-quantizer")
+    init_model(r"models/qwen1.5-1.8-Chat-avx512_vnni-quantizer")
     # Start the background task in a separate asyncio task
     unload_thread = threading.Thread(target=unload_model_background)
     unload_thread.start()
@@ -210,7 +211,7 @@ async def conversation(body: Body_OpenAI, request: Request):
         raise HTTPException(status.HTTP_400_BAD_REQUEST, "No Question Found")
 
     Prompt_system = "你是 Karvis，一个由 Minisforum Inc 开发的内置于 Minisforum PC 中的大型语言模型。请你尽全力回答用户的问题。"
-    history = [{"role": "system", "content": Prompt_system}]
+    history = []
 
     for i in question_messages:
         history.append(i)

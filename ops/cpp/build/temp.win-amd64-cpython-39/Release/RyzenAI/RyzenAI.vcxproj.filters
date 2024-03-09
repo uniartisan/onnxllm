@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\V3\Desktop\RyzenAI-SW\example\transformers\ops\cpp\pybind\pyryzenai.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\V3\Desktop\RyzenAI-SW\example\transformers\ops\cpp\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{E23785E0-242A-3F8F-8190-FE7B682DE871}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

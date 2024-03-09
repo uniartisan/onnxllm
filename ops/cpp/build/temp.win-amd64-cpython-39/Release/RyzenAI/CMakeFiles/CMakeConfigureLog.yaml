@@ -1,0 +1,464 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Users/V3/AppData/Local/Temp/pip-build-env-sh0tw1aa/overlay/Lib/site-packages/cmake/data/share/cmake-3.28/Modules/CMakeDetermineSystem.cmake:233 (message)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      The system is: Windows - 10.0.26058 - AMD64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Users/V3/AppData/Local/Temp/pip-build-env-sh0tw1aa/overlay/Lib/site-packages/cmake/data/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Users/V3/AppData/Local/Temp/pip-build-env-sh0tw1aa/overlay/Lib/site-packages/cmake/data/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Users/V3/AppData/Local/Temp/pip-build-env-sh0tw1aa/overlay/Lib/site-packages/cmake/data/share/cmake-3.28/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler:  
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      Microsoft (R) Build Engine version 16.11.2+f32259642 for .NET Framework
+      Copyright (C) Microsoft Corporation. All rights reserved.
+      
+      Build started 3/9/2024 9:05:44 PM.
+      Project "C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\3.28.3\\CompilerIdC\\CompilerIdC.vcxproj" on node 1 (default targets).
+      PrepareForBuild:
+        Creating directory "Debug\\".
+        Creating directory "Debug\\CompilerIdC.tlog\\".
+      InitializeBuildStatus:
+        Creating "Debug\\CompilerIdC.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+      ClCompile:
+        C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc142.pdb" /external:W0 /Gd /TC /FC /errorReport:queue CMakeCCompilerId.c
+        CMakeCCompilerId.c
+      Link:
+        C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdC.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdC.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdC.lib" /MACHINE:X64 Debug\\CMakeCCompilerId.obj
+        CompilerIdC.vcxproj -> C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\3.28.3\\CompilerIdC\\CompilerIdC.exe
+      PostBuildEvent:
+        for %%i in (cl.exe) do @echo CMAKE_C_COMPILER=%%~$PATH:i
+        :VCEnd
+        CMAKE_C_COMPILER=C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\Hostx64\\x64\\cl.exe
+      FinalizeBuildStatus:
+        Deleting file "Debug\\CompilerIdC.tlog\\unsuccessfulbuild".
+        Touching "Debug\\CompilerIdC.tlog\\CompilerIdC.lastbuildstate".
+      Done Building Project "C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\3.28.3\\CompilerIdC\\CompilerIdC.vcxproj" (default targets).
+      
+      Build succeeded.
+          0 Warning(s)
+          0 Error(s)
+      
+      Time Elapsed 00:00:01.27
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.vcxproj"
+      
+      The C compiler identification is MSVC, found in:
+        C:/Users/V3/Desktop/RyzenAI-SW/example/transformers/ops/cpp/build/temp.win-amd64-cpython-39/Release/RyzenAI/CMakeFiles/3.28.3/CompilerIdC/CompilerIdC.exe
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Users/V3/AppData/Local/Temp/pip-build-env-sh0tw1aa/overlay/Lib/site-packages/cmake/data/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Users/V3/AppData/Local/Temp/pip-build-env-sh0tw1aa/overlay/Lib/site-packages/cmake/data/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Users/V3/AppData/Local/Temp/pip-build-env-sh0tw1aa/overlay/Lib/site-packages/cmake/data/share/cmake-3.28/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler:  
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      Microsoft (R) Build Engine version 16.11.2+f32259642 for .NET Framework
+      Copyright (C) Microsoft Corporation. All rights reserved.
+      
+      Build started 3/9/2024 9:05:45 PM.
+      Project "C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\3.28.3\\CompilerIdCXX\\CompilerIdCXX.vcxproj" on node 1 (default targets).
+      PrepareForBuild:
+        Creating directory "Debug\\".
+        Creating directory "Debug\\CompilerIdCXX.tlog\\".
+      InitializeBuildStatus:
+        Creating "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+      ClCompile:
+        C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc142.pdb" /external:W0 /Gd /TP /FC /errorReport:queue CMakeCXXCompilerId.cpp
+        CMakeCXXCompilerId.cpp
+      Link:
+        C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdCXX.lib" /MACHINE:X64 Debug\\CMakeCXXCompilerId.obj
+        CompilerIdCXX.vcxproj -> C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\3.28.3\\CompilerIdCXX\\CompilerIdCXX.exe
+      PostBuildEvent:
+        for %%i in (cl.exe) do @echo CMAKE_CXX_COMPILER=%%~$PATH:i
+        :VCEnd
+        CMAKE_CXX_COMPILER=C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\Hostx64\\x64\\cl.exe
+      FinalizeBuildStatus:
+        Deleting file "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild".
+        Touching "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.lastbuildstate".
+      Done Building Project "C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\3.28.3\\CompilerIdCXX\\CompilerIdCXX.vcxproj" (default targets).
+      
+      Build succeeded.
+          0 Warning(s)
+          0 Error(s)
+      
+      Time Elapsed 00:00:01.13
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.vcxproj"
+      
+      The CXX compiler identification is MSVC, found in:
+        C:/Users/V3/Desktop/RyzenAI-SW/example/transformers/ops/cpp/build/temp.win-amd64-cpython-39/Release/RyzenAI/CMakeFiles/3.28.3/CompilerIdCXX/CompilerIdCXX.exe
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Users/V3/AppData/Local/Temp/pip-build-env-sh0tw1aa/overlay/Lib/site-packages/cmake/data/share/cmake-3.28/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "C:/Users/V3/AppData/Local/Temp/pip-build-env-sh0tw1aa/overlay/Lib/site-packages/cmake/data/share/cmake-3.28/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "C:/Users/V3/Desktop/RyzenAI-SW/example/transformers/ops/cpp/build/temp.win-amd64-cpython-39/Release/RyzenAI/CMakeFiles/CMakeScratch/TryCompile-k5hnkg"
+      binary: "C:/Users/V3/Desktop/RyzenAI-SW/example/transformers/ops/cpp/build/temp.win-amd64-cpython-39/Release/RyzenAI/CMakeFiles/CMakeScratch/TryCompile-k5hnkg"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/V3/Desktop/RyzenAI-SW/example/transformers/ops/cpp/build/temp.win-amd64-cpython-39/Release/RyzenAI/CMakeFiles/CMakeScratch/TryCompile-k5hnkg'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe" cmTC_05fdc.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:n
+        Microsoft (R) Build Engine version 16.11.2+f32259642 for .NET Framework
+        Copyright (C) Microsoft Corporation. All rights reserved.
+        
+        Build started 3/9/2024 9:05:47 PM.
+        Project "C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\CMakeScratch\\TryCompile-k5hnkg\\cmTC_05fdc.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_05fdc.dir\\Debug\\".
+          Creating directory "C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\CMakeScratch\\TryCompile-k5hnkg\\Debug\\".
+          Creating directory "cmTC_05fdc.dir\\Debug\\cmTC_05fdc.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_05fdc.dir\\Debug\\cmTC_05fdc.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_05fdc.dir\\Debug\\\\" /Fd"cmTC_05fdc.dir\\Debug\\vc142.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\V3\\AppData\\Local\\Temp\\pip-build-env-sh0tw1aa\\overlay\\Lib\\site-packages\\cmake\\data\\share\\cmake-3.28\\Modules\\CMakeCCompilerABI.c"
+          Microsoft (R) C/C++ Optimizing Compiler Version 19.29.30154 for x64
+          Copyright (C) Microsoft Corporation.  All rights reserved.
+          CMakeCCompilerABI.c
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_05fdc.dir\\Debug\\\\" /Fd"cmTC_05fdc.dir\\Debug\\vc142.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\V3\\AppData\\Local\\Temp\\pip-build-env-sh0tw1aa\\overlay\\Lib\\site-packages\\cmake\\data\\share\\cmake-3.28\\Modules\\CMakeCCompilerABI.c"
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\CMakeScratch\\TryCompile-k5hnkg\\Debug\\cmTC_05fdc.exe" /INCREMENTAL /ILK:"cmTC_05fdc.dir\\Debug\\cmTC_05fdc.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/V3/Desktop/RyzenAI-SW/example/transformers/ops/cpp/build/temp.win-amd64-cpython-39/Release/RyzenAI/CMakeFiles/CMakeScratch/TryCompile-k5hnkg/Debug/cmTC_05fdc.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/V3/Desktop/RyzenAI-SW/example/transformers/ops/cpp/build/temp.win-amd64-cpython-39/Release/RyzenAI/CMakeFiles/CMakeScratch/TryCompile-k5hnkg/Debug/cmTC_05fdc.lib" /MACHINE:X64  /machine:x64 cmTC_05fdc.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_05fdc.vcxproj -> C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\CMakeScratch\\TryCompile-k5hnkg\\Debug\\cmTC_05fdc.exe
+        FinalizeBuildStatus:
+          Deleting file "cmTC_05fdc.dir\\Debug\\cmTC_05fdc.tlog\\unsuccessfulbuild".
+          Touching "cmTC_05fdc.dir\\Debug\\cmTC_05fdc.tlog\\cmTC_05fdc.lastbuildstate".
+        Done Building Project "C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\CMakeScratch\\TryCompile-k5hnkg\\cmTC_05fdc.vcxproj" (default targets).
+        
+        Build succeeded.
+            0 Warning(s)
+            0 Error(s)
+        
+        Time Elapsed 00:00:01.00
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Users/V3/AppData/Local/Temp/pip-build-env-sh0tw1aa/overlay/Lib/site-packages/cmake/data/share/cmake-3.28/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "C:/Users/V3/AppData/Local/Temp/pip-build-env-sh0tw1aa/overlay/Lib/site-packages/cmake/data/share/cmake-3.28/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "C:/Users/V3/Desktop/RyzenAI-SW/example/transformers/ops/cpp/build/temp.win-amd64-cpython-39/Release/RyzenAI/CMakeFiles/CMakeScratch/TryCompile-3w3tmp"
+      binary: "C:/Users/V3/Desktop/RyzenAI-SW/example/transformers/ops/cpp/build/temp.win-amd64-cpython-39/Release/RyzenAI/CMakeFiles/CMakeScratch/TryCompile-3w3tmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /GR /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/V3/Desktop/RyzenAI-SW/example/transformers/ops/cpp/build/temp.win-amd64-cpython-39/Release/RyzenAI/CMakeFiles/CMakeScratch/TryCompile-3w3tmp'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe" cmTC_0bd0e.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:n
+        Microsoft (R) Build Engine version 16.11.2+f32259642 for .NET Framework
+        Copyright (C) Microsoft Corporation. All rights reserved.
+        
+        Build started 3/9/2024 9:05:48 PM.
+        Project "C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\CMakeScratch\\TryCompile-3w3tmp\\cmTC_0bd0e.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_0bd0e.dir\\Debug\\".
+          Creating directory "C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\CMakeScratch\\TryCompile-3w3tmp\\Debug\\".
+          Creating directory "cmTC_0bd0e.dir\\Debug\\cmTC_0bd0e.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_0bd0e.dir\\Debug\\cmTC_0bd0e.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_0bd0e.dir\\Debug\\\\" /Fd"cmTC_0bd0e.dir\\Debug\\vc142.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Users\\V3\\AppData\\Local\\Temp\\pip-build-env-sh0tw1aa\\overlay\\Lib\\site-packages\\cmake\\data\\share\\cmake-3.28\\Modules\\CMakeCXXCompilerABI.cpp"
+          Microsoft (R) C/C++ Optimizing Compiler Version 19.29.30154 for x64
+          Copyright (C) Microsoft Corporation.  All rights reserved.
+          CMakeCXXCompilerABI.cpp
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_0bd0e.dir\\Debug\\\\" /Fd"cmTC_0bd0e.dir\\Debug\\vc142.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Users\\V3\\AppData\\Local\\Temp\\pip-build-env-sh0tw1aa\\overlay\\Lib\\site-packages\\cmake\\data\\share\\cmake-3.28\\Modules\\CMakeCXXCompilerABI.cpp"
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\CMakeScratch\\TryCompile-3w3tmp\\Debug\\cmTC_0bd0e.exe" /INCREMENTAL /ILK:"cmTC_0bd0e.dir\\Debug\\cmTC_0bd0e.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/V3/Desktop/RyzenAI-SW/example/transformers/ops/cpp/build/temp.win-amd64-cpython-39/Release/RyzenAI/CMakeFiles/CMakeScratch/TryCompile-3w3tmp/Debug/cmTC_0bd0e.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/V3/Desktop/RyzenAI-SW/example/transformers/ops/cpp/build/temp.win-amd64-cpython-39/Release/RyzenAI/CMakeFiles/CMakeScratch/TryCompile-3w3tmp/Debug/cmTC_0bd0e.lib" /MACHINE:X64  /machine:x64 cmTC_0bd0e.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_0bd0e.vcxproj -> C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\CMakeScratch\\TryCompile-3w3tmp\\Debug\\cmTC_0bd0e.exe
+        FinalizeBuildStatus:
+          Deleting file "cmTC_0bd0e.dir\\Debug\\cmTC_0bd0e.tlog\\unsuccessfulbuild".
+          Touching "cmTC_0bd0e.dir\\Debug\\cmTC_0bd0e.tlog\\cmTC_0bd0e.lastbuildstate".
+        Done Building Project "C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\CMakeScratch\\TryCompile-3w3tmp\\cmTC_0bd0e.vcxproj" (default targets).
+        
+        Build succeeded.
+            0 Warning(s)
+            0 Error(s)
+        
+        Time Elapsed 00:00:01.08
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Users/V3/AppData/Local/Temp/pip-build-env-sh0tw1aa/overlay/Lib/site-packages/cmake/data/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "C:/Users/V3/AppData/Local/Temp/pip-build-env-sh0tw1aa/overlay/Lib/site-packages/cmake/data/share/cmake-3.28/Modules/CheckCSourceCompiles.cmake:52 (cmake_check_source_compiles)"
+      - "C:/Users/V3/AppData/Local/Temp/pip-build-env-sh0tw1aa/overlay/Lib/site-packages/cmake/data/share/cmake-3.28/Modules/FindThreads.cmake:97 (CHECK_C_SOURCE_COMPILES)"
+      - "C:/Users/V3/AppData/Local/Temp/pip-build-env-sh0tw1aa/overlay/Lib/site-packages/cmake/data/share/cmake-3.28/Modules/FindThreads.cmake:163 (_threads_check_libc)"
+      - "CMakeLists.txt:8 (find_package)"
+    checks:
+      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
+    directories:
+      source: "C:/Users/V3/Desktop/RyzenAI-SW/example/transformers/ops/cpp/build/temp.win-amd64-cpython-39/Release/RyzenAI/CMakeFiles/CMakeScratch/TryCompile-6o17vg"
+      binary: "C:/Users/V3/Desktop/RyzenAI-SW/example/transformers/ops/cpp/build/temp.win-amd64-cpython-39/Release/RyzenAI/CMakeFiles/CMakeScratch/TryCompile-6o17vg"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/V3/Desktop/RyzenAI-SW/example/transformers/ops/cpp/build/temp.win-amd64-cpython-39/Release/RyzenAI/CMakeFiles/CMakeScratch/TryCompile-6o17vg'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe" cmTC_fc32b.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:n
+        Microsoft (R) Build Engine version 16.11.2+f32259642 for .NET Framework
+        Copyright (C) Microsoft Corporation. All rights reserved.
+        
+        Build started 3/9/2024 9:05:49 PM.
+        Project "C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\CMakeScratch\\TryCompile-6o17vg\\cmTC_fc32b.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_fc32b.dir\\Debug\\".
+          Creating directory "C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\CMakeScratch\\TryCompile-6o17vg\\Debug\\".
+          Creating directory "cmTC_fc32b.dir\\Debug\\cmTC_fc32b.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_fc32b.dir\\Debug\\cmTC_fc32b.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_fc32b.dir\\Debug\\\\" /Fd"cmTC_fc32b.dir\\Debug\\vc142.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\CMakeScratch\\TryCompile-6o17vg\\src.c"
+          Microsoft (R) C/C++ Optimizing Compiler Version 19.29.30154 for x64
+          Copyright (C) Microsoft Corporation.  All rights reserved.
+          src.c
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_fc32b.dir\\Debug\\\\" /Fd"cmTC_fc32b.dir\\Debug\\vc142.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\CMakeScratch\\TryCompile-6o17vg\\src.c"
+        C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\CMakeScratch\\TryCompile-6o17vg\\src.c(1,10): fatal error C1083: Cannot open include file: 'pthread.h': No such file or directory [C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\CMakeScratch\\TryCompile-6o17vg\\cmTC_fc32b.vcxproj]
+        Done Building Project "C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\CMakeScratch\\TryCompile-6o17vg\\cmTC_fc32b.vcxproj" (default targets) -- FAILED.
+        
+        Build FAILED.
+        
+        "C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\CMakeScratch\\TryCompile-6o17vg\\cmTC_fc32b.vcxproj" (default target) (1) ->
+        (ClCompile target) -> 
+          C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\CMakeScratch\\TryCompile-6o17vg\\src.c(1,10): fatal error C1083: Cannot open include file: 'pthread.h': No such file or directory [C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\CMakeScratch\\TryCompile-6o17vg\\cmTC_fc32b.vcxproj]
+        
+            0 Warning(s)
+            1 Error(s)
+        
+        Time Elapsed 00:00:00.77
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Users/V3/AppData/Local/Temp/pip-build-env-sh0tw1aa/overlay/Lib/site-packages/cmake/data/share/cmake-3.28/Modules/CheckLibraryExists.cmake:69 (try_compile)"
+      - "C:/Users/V3/AppData/Local/Temp/pip-build-env-sh0tw1aa/overlay/Lib/site-packages/cmake/data/share/cmake-3.28/Modules/FindThreads.cmake:112 (CHECK_LIBRARY_EXISTS)"
+      - "C:/Users/V3/AppData/Local/Temp/pip-build-env-sh0tw1aa/overlay/Lib/site-packages/cmake/data/share/cmake-3.28/Modules/FindThreads.cmake:175 (_threads_check_lib)"
+      - "CMakeLists.txt:8 (find_package)"
+    checks:
+      - "Looking for pthread_create in pthreads"
+    directories:
+      source: "C:/Users/V3/Desktop/RyzenAI-SW/example/transformers/ops/cpp/build/temp.win-amd64-cpython-39/Release/RyzenAI/CMakeFiles/CMakeScratch/TryCompile-xcuha6"
+      binary: "C:/Users/V3/Desktop/RyzenAI-SW/example/transformers/ops/cpp/build/temp.win-amd64-cpython-39/Release/RyzenAI/CMakeFiles/CMakeScratch/TryCompile-xcuha6"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "CMAKE_HAVE_PTHREADS_CREATE"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/V3/Desktop/RyzenAI-SW/example/transformers/ops/cpp/build/temp.win-amd64-cpython-39/Release/RyzenAI/CMakeFiles/CMakeScratch/TryCompile-xcuha6'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe" cmTC_ebfcd.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:n
+        Microsoft (R) Build Engine version 16.11.2+f32259642 for .NET Framework
+        Copyright (C) Microsoft Corporation. All rights reserved.
+        
+        Build started 3/9/2024 9:05:50 PM.
+        Project "C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\CMakeScratch\\TryCompile-xcuha6\\cmTC_ebfcd.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_ebfcd.dir\\Debug\\".
+          Creating directory "C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\CMakeScratch\\TryCompile-xcuha6\\Debug\\".
+          Creating directory "cmTC_ebfcd.dir\\Debug\\cmTC_ebfcd.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_ebfcd.dir\\Debug\\cmTC_ebfcd.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_ebfcd.dir\\Debug\\\\" /Fd"cmTC_ebfcd.dir\\Debug\\vc142.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\CMakeScratch\\TryCompile-xcuha6\\CheckFunctionExists.c"
+          Microsoft (R) C/C++ Optimizing Compiler Version 19.29.30154 for x64
+          Copyright (C) Microsoft Corporation.  All rights reserved.
+          CheckFunctionExists.c
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_ebfcd.dir\\Debug\\\\" /Fd"cmTC_ebfcd.dir\\Debug\\vc142.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\CMakeScratch\\TryCompile-xcuha6\\CheckFunctionExists.c"
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\CMakeScratch\\TryCompile-xcuha6\\Debug\\cmTC_ebfcd.exe" /INCREMENTAL /ILK:"cmTC_ebfcd.dir\\Debug\\cmTC_ebfcd.ilk" /NOLOGO pthreads.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/V3/Desktop/RyzenAI-SW/example/transformers/ops/cpp/build/temp.win-amd64-cpython-39/Release/RyzenAI/CMakeFiles/CMakeScratch/TryCompile-xcuha6/Debug/cmTC_ebfcd.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/V3/Desktop/RyzenAI-SW/example/transformers/ops/cpp/build/temp.win-amd64-cpython-39/Release/RyzenAI/CMakeFiles/CMakeScratch/TryCompile-xcuha6/Debug/cmTC_ebfcd.lib" /MACHINE:X64  /machine:x64 cmTC_ebfcd.dir\\Debug\\CheckFunctionExists.obj
+        LINK : fatal error LNK1104: cannot open file 'pthreads.lib' [C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\CMakeScratch\\TryCompile-xcuha6\\cmTC_ebfcd.vcxproj]
+        Done Building Project "C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\CMakeScratch\\TryCompile-xcuha6\\cmTC_ebfcd.vcxproj" (default targets) -- FAILED.
+        
+        Build FAILED.
+        
+        "C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\CMakeScratch\\TryCompile-xcuha6\\cmTC_ebfcd.vcxproj" (default target) (1) ->
+        (Link target) -> 
+          LINK : fatal error LNK1104: cannot open file 'pthreads.lib' [C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\CMakeScratch\\TryCompile-xcuha6\\cmTC_ebfcd.vcxproj]
+        
+            0 Warning(s)
+            1 Error(s)
+        
+        Time Elapsed 00:00:00.88
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Users/V3/AppData/Local/Temp/pip-build-env-sh0tw1aa/overlay/Lib/site-packages/cmake/data/share/cmake-3.28/Modules/CheckLibraryExists.cmake:69 (try_compile)"
+      - "C:/Users/V3/AppData/Local/Temp/pip-build-env-sh0tw1aa/overlay/Lib/site-packages/cmake/data/share/cmake-3.28/Modules/FindThreads.cmake:112 (CHECK_LIBRARY_EXISTS)"
+      - "C:/Users/V3/AppData/Local/Temp/pip-build-env-sh0tw1aa/overlay/Lib/site-packages/cmake/data/share/cmake-3.28/Modules/FindThreads.cmake:176 (_threads_check_lib)"
+      - "CMakeLists.txt:8 (find_package)"
+    checks:
+      - "Looking for pthread_create in pthread"
+    directories:
+      source: "C:/Users/V3/Desktop/RyzenAI-SW/example/transformers/ops/cpp/build/temp.win-amd64-cpython-39/Release/RyzenAI/CMakeFiles/CMakeScratch/TryCompile-u73yfz"
+      binary: "C:/Users/V3/Desktop/RyzenAI-SW/example/transformers/ops/cpp/build/temp.win-amd64-cpython-39/Release/RyzenAI/CMakeFiles/CMakeScratch/TryCompile-u73yfz"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "CMAKE_HAVE_PTHREAD_CREATE"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/V3/Desktop/RyzenAI-SW/example/transformers/ops/cpp/build/temp.win-amd64-cpython-39/Release/RyzenAI/CMakeFiles/CMakeScratch/TryCompile-u73yfz'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe" cmTC_5ec75.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:n
+        Microsoft (R) Build Engine version 16.11.2+f32259642 for .NET Framework
+        Copyright (C) Microsoft Corporation. All rights reserved.
+        
+        Build started 3/9/2024 9:05:52 PM.
+        Project "C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\CMakeScratch\\TryCompile-u73yfz\\cmTC_5ec75.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_5ec75.dir\\Debug\\".
+          Creating directory "C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\CMakeScratch\\TryCompile-u73yfz\\Debug\\".
+          Creating directory "cmTC_5ec75.dir\\Debug\\cmTC_5ec75.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_5ec75.dir\\Debug\\cmTC_5ec75.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_5ec75.dir\\Debug\\\\" /Fd"cmTC_5ec75.dir\\Debug\\vc142.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\CMakeScratch\\TryCompile-u73yfz\\CheckFunctionExists.c"
+          Microsoft (R) C/C++ Optimizing Compiler Version 19.29.30154 for x64
+          Copyright (C) Microsoft Corporation.  All rights reserved.
+          CheckFunctionExists.c
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_5ec75.dir\\Debug\\\\" /Fd"cmTC_5ec75.dir\\Debug\\vc142.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\CMakeScratch\\TryCompile-u73yfz\\CheckFunctionExists.c"
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\CMakeScratch\\TryCompile-u73yfz\\Debug\\cmTC_5ec75.exe" /INCREMENTAL /ILK:"cmTC_5ec75.dir\\Debug\\cmTC_5ec75.ilk" /NOLOGO pthread.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/V3/Desktop/RyzenAI-SW/example/transformers/ops/cpp/build/temp.win-amd64-cpython-39/Release/RyzenAI/CMakeFiles/CMakeScratch/TryCompile-u73yfz/Debug/cmTC_5ec75.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/V3/Desktop/RyzenAI-SW/example/transformers/ops/cpp/build/temp.win-amd64-cpython-39/Release/RyzenAI/CMakeFiles/CMakeScratch/TryCompile-u73yfz/Debug/cmTC_5ec75.lib" /MACHINE:X64  /machine:x64 cmTC_5ec75.dir\\Debug\\CheckFunctionExists.obj
+        LINK : fatal error LNK1104: cannot open file 'pthread.lib' [C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\CMakeScratch\\TryCompile-u73yfz\\cmTC_5ec75.vcxproj]
+        Done Building Project "C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\CMakeScratch\\TryCompile-u73yfz\\cmTC_5ec75.vcxproj" (default targets) -- FAILED.
+        
+        Build FAILED.
+        
+        "C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\CMakeScratch\\TryCompile-u73yfz\\cmTC_5ec75.vcxproj" (default target) (1) ->
+        (Link target) -> 
+          LINK : fatal error LNK1104: cannot open file 'pthread.lib' [C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\CMakeScratch\\TryCompile-u73yfz\\cmTC_5ec75.vcxproj]
+        
+            0 Warning(s)
+            1 Error(s)
+        
+        Time Elapsed 00:00:00.93
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Users/V3/AppData/Local/Temp/pip-build-env-sh0tw1aa/overlay/Lib/site-packages/cmake/data/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "C:/Users/V3/AppData/Local/Temp/pip-build-env-sh0tw1aa/overlay/Lib/site-packages/cmake/data/share/cmake-3.28/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "C:/Users/V3/AppData/Local/Temp/pip-build-env-sh0tw1aa/overlay/Lib/site-packages/cmake/data/share/cmake-3.28/Modules/CheckCXXCompilerFlag.cmake:34 (cmake_check_compiler_flag)"
+      - "C:/Users/V3/.conda/envs/ryzenai-transformers/share/cmake/pybind11/pybind11Common.cmake:276 (check_cxx_compiler_flag)"
+      - "C:/Users/V3/.conda/envs/ryzenai-transformers/share/cmake/pybind11/pybind11Common.cmake:340 (_pybind11_return_if_cxx_and_linker_flags_work)"
+      - "C:/Users/V3/.conda/envs/ryzenai-transformers/share/cmake/pybind11/pybind11Common.cmake:385 (_pybind11_generate_lto)"
+      - "C:/Users/V3/.conda/envs/ryzenai-transformers/share/cmake/pybind11/pybind11Config.cmake:250 (include)"
+      - "CMakeLists.txt:10 (find_package)"
+    checks:
+      - "Performing Test HAS_MSVC_GL_LTCG"
+    directories:
+      source: "C:/Users/V3/Desktop/RyzenAI-SW/example/transformers/ops/cpp/build/temp.win-amd64-cpython-39/Release/RyzenAI/CMakeFiles/CMakeScratch/TryCompile-ip0nlm"
+      binary: "C:/Users/V3/Desktop/RyzenAI-SW/example/transformers/ops/cpp/build/temp.win-amd64-cpython-39/Release/RyzenAI/CMakeFiles/CMakeScratch/TryCompile-ip0nlm"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /GR /EHsc /Zc:__cplusplus"
+      CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "HAS_MSVC_GL_LTCG"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/V3/Desktop/RyzenAI-SW/example/transformers/ops/cpp/build/temp.win-amd64-cpython-39/Release/RyzenAI/CMakeFiles/CMakeScratch/TryCompile-ip0nlm'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe" cmTC_4b990.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:n
+        Microsoft (R) Build Engine version 16.11.2+f32259642 for .NET Framework
+        Copyright (C) Microsoft Corporation. All rights reserved.
+        
+        Build started 3/9/2024 9:05:54 PM.
+        Project "C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\CMakeScratch\\TryCompile-ip0nlm\\cmTC_4b990.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_4b990.dir\\Debug\\".
+          Creating directory "C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\CMakeScratch\\TryCompile-ip0nlm\\Debug\\".
+          Creating directory "cmTC_4b990.dir\\Debug\\cmTC_4b990.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_4b990.dir\\Debug\\cmTC_4b990.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /GL /D _MBCS /D WIN32 /D _WINDOWS /D HAS_MSVC_GL_LTCG /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_4b990.dir\\Debug\\\\" /Fd"cmTC_4b990.dir\\Debug\\vc142.pdb" /external:W1 /Gd /TP /errorReport:queue  /Zc:__cplusplus "C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\CMakeScratch\\TryCompile-ip0nlm\\src.cxx"
+          Microsoft (R) C/C++ Optimizing Compiler Version 19.29.30154 for x64
+          Copyright (C) Microsoft Corporation.  All rights reserved.
+          src.cxx
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /GL /D _MBCS /D WIN32 /D _WINDOWS /D HAS_MSVC_GL_LTCG /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_4b990.dir\\Debug\\\\" /Fd"cmTC_4b990.dir\\Debug\\vc142.pdb" /external:W1 /Gd /TP /errorReport:queue  /Zc:__cplusplus "C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\CMakeScratch\\TryCompile-ip0nlm\\src.cxx"
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\CMakeScratch\\TryCompile-ip0nlm\\Debug\\cmTC_4b990.exe" /INCREMENTAL /ILK:"cmTC_4b990.dir\\Debug\\cmTC_4b990.ilk" /NOLOGO "-LTCG" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/V3/Desktop/RyzenAI-SW/example/transformers/ops/cpp/build/temp.win-amd64-cpython-39/Release/RyzenAI/CMakeFiles/CMakeScratch/TryCompile-ip0nlm/Debug/cmTC_4b990.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/V3/Desktop/RyzenAI-SW/example/transformers/ops/cpp/build/temp.win-amd64-cpython-39/Release/RyzenAI/CMakeFiles/CMakeScratch/TryCompile-ip0nlm/Debug/cmTC_4b990.lib" /MACHINE:X64  /machine:x64 cmTC_4b990.dir\\Debug\\src.obj
+        LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/LTCG' specification [C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\CMakeScratch\\TryCompile-ip0nlm\\cmTC_4b990.vcxproj]
+          Generating code
+          Finished generating code
+          cmTC_4b990.vcxproj -> C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\CMakeScratch\\TryCompile-ip0nlm\\Debug\\cmTC_4b990.exe
+        FinalizeBuildStatus:
+          Deleting file "cmTC_4b990.dir\\Debug\\cmTC_4b990.tlog\\unsuccessfulbuild".
+          Touching "cmTC_4b990.dir\\Debug\\cmTC_4b990.tlog\\cmTC_4b990.lastbuildstate".
+        Done Building Project "C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\CMakeScratch\\TryCompile-ip0nlm\\cmTC_4b990.vcxproj" (default targets).
+        
+        Build succeeded.
+        
+        "C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\CMakeScratch\\TryCompile-ip0nlm\\cmTC_4b990.vcxproj" (default target) (1) ->
+        (Link target) -> 
+          LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/LTCG' specification [C:\\Users\\V3\\Desktop\\RyzenAI-SW\\example\\transformers\\ops\\cpp\\build\\temp.win-amd64-cpython-39\\Release\\RyzenAI\\CMakeFiles\\CMakeScratch\\TryCompile-ip0nlm\\cmTC_4b990.vcxproj]
+        
+            1 Warning(s)
+            0 Error(s)
+        
+        Time Elapsed 00:00:01.04
+        
+      exitCode: 0
+...
