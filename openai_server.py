@@ -69,7 +69,7 @@ chatmodel_onnx = {
 async def lifespan(app: FastAPI):
     # Load the ML model
     global stop_threads
-    init_model("models\qwen1.5-7-Chat-avx2-quantizer")
+    init_model(r"models/qwen1.5-1.8-avx2-quantizer")
     # Start the background task in a separate asyncio task
     unload_thread = threading.Thread(target=unload_model_background)
     unload_thread.start()
@@ -139,7 +139,7 @@ def read_root():
 @app.post("/v1/chat/completions")
 async def conversation(body: Body_OpenAI, request: Request):
     if chat_model is None:
-        init_model("models\qwen1.5-7-Chat-avx2-quantizer")
+        init_model("models/qwen1.5-1.8-avx2-quantizer")
 
     async def eval_openailike(history, top_p=0.7, temperature=0.95):
         result = {}
@@ -163,9 +163,7 @@ async def conversation(body: Body_OpenAI, request: Request):
                 temperature=temperature,
             ):
                 response_re = (
-                    response_re.replace(chatmodel_onnx["im_start"], "")
-                    .replace(chatmodel_onnx["im_end"], "")
-                    .replace(chatmodel_onnx["endoftext"], "")
+                    response_re
                 )
                 # print(response_re)
                 if await request.is_disconnected():
@@ -197,9 +195,7 @@ async def conversation(body: Body_OpenAI, request: Request):
                 top_p=top_p,
                 temperature=temperature,
             )
-            choices0["message"]["content"] = response_re.replace(
-                "<|im_start|>assistant", ""
-            ).replace("<|im_end|>", "")
+            choices0["message"]["content"] = response_re
             result["choices"] = [choices0]
             result["choices"][0]["finish_reason"] = "stop"
             yield json.dumps(result, sort_keys=True)

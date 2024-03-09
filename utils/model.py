@@ -62,7 +62,7 @@ def stream_response(
     generated_text = ""
     for new_text in streamer:
         generated_text += new_text
-        yield generated_text[previous_output_text_len:]
+        yield generated_text[previous_output_text_len+len("<|im_start|>assistant"):-len("<|im_end|>")]
 
 
 
