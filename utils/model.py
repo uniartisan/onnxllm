@@ -1,5 +1,6 @@
 from optimum.onnxruntime import ORTModelForCausalLM
 from transformers import AutoTokenizer
+from transformers import TextIteratorStreamer, TextStreamer
 
 # import torch
 
@@ -27,18 +28,22 @@ def prepare_model(model_path, provider=None):
     return model, tokenizer
 
 
+
 def stream_response(
     model,
     tokenizer,
     history,
     max_output_length=256,
-    output_token_per_iteration=10,
     end_token=None,
     history_temple=None,
     im_stop_token=None,
     top_p=0.9,
     temperature=0.6,
+    timeout=300,
 ):
+    from threading import Thread
+    streamer = TextIteratorStreamer(tokenizer, timeout=timeout)
+    output_text = ""
     if end_token is None:
         end_token = tokenizer.eos_token
     if im_stop_token is None:
@@ -47,48 +52,21 @@ def stream_response(
         texts = tokenizer.apply_chat_template(history, tokenize=False, padding=True)
     else:
         texts = history_temple
-    # print(texts)
-    previous_output_text_len = len(texts)
+
     input_ids = tokenizer(texts, return_tensors="pt")
-    for i in range(int(max_output_length / output_token_per_iteration) + 1):
-        # 生成文本
-        outputs = model.generate(**input_ids, max_new_tokens=output_token_per_iteration)
+    generation_kwargs = dict(input_ids, streamer=streamer, max_new_tokens=max_output_length, 
+                             eos_token_id=im_stop_token)
+    thread = Thread(target=model.generate, kwargs=generation_kwargs)
+    thread.start()
+    previous_output_text_len = len(texts)
+    generated_text = ""
+    for new_text in streamer:
+        generated_text += new_text
+        yield generated_text[previous_output_text_len:]
 
-        # 判断是否结束
-        if end_token in outputs[0][previous_output_text_len + 2:]:
-            # 找到 end_token 的位置
-            end_token_position = outputs[0].tolist().index(end_token)
 
-            # 提取 end_token 之前的内容
-            generated_text = tokenizer.decode(outputs[0][:end_token_position])
-            output_text = generated_text[previous_output_text_len :]
-            yield output_text
-            # print(output_text)
-            break # 结束
 
-        # 将生成的文本解码
-        generated_text = tokenizer.decode(outputs[0])
-        output_text = generated_text[previous_output_text_len:]
-
-        # 继续生成文本
-        # 将文本转换为模型可接受的输入格式
-        input_ids = tokenizer(generated_text, return_tensors="pt")
-        yield output_text
-
-        if im_stop_token in outputs[0][previous_output_text_len + 2 :]:
-            # 找到 end_token 的位置
-            last_im_stop_token_position = -1
-            for i, token in enumerate(outputs[0]):
-                if token == im_stop_token:
-                    last_im_stop_token_position = i
-
-            # 提取 end_token 之前的内容
-            generated_text = tokenizer.decode(outputs[0][:last_im_stop_token_position])
-            # print(generated_text)
-            output_text = generated_text[previous_output_text_len:]
-            yield output_text
-            return  # 结束
-
+            
 
 def generate(
     model,
@@ -132,9 +110,8 @@ if __name__ == "__main__":
     parent_dir = current_dir.rsplit("/", 1)[0]
     print(parent_dir)
 
-    model, tokenizer = prepare_model(
-        os.path.join(parent_dir, "models\qwen1.5-1.8-Chat-avx2-quantizer")
-    )
+    model, tokenizer = prepare_model("models/qwen1.5-1.8-avx2-quantizer")
+    
 
     # 结束符号的token id
     eos_token_id = tokenizer.encode("<|endoftext|>")[0]
@@ -151,6 +128,7 @@ if __name__ == "__main__":
     ]
 
 
+
     for generated_text in stream_response(
         history=inputs,
         max_output_length=300,
@@ -160,26 +138,37 @@ if __name__ == "__main__":
     ):
         print(generated_text)
         
+        
     generated_text = generated_text.replace("<|im_start|>", "").replace(
         "<|im_end|>", ""
     )
     inputs.append({"role": "assitant", "content": generated_text})
 
-    inputs.append({"role": "user", "content": "你是谁？"})
-    previous_output_text += tokenizer.apply_chat_template(
-        inputs,
-        tokenize=False,
-        add_generation_prompt=False,
+    generated_text = generated_text.replace("<|im_start|>", "").replace(
+        "<|im_end|>", ""
     )
-    print(previous_output_text)
+    inputs.append({"role": "assitant", "content": generated_text})
+        
+    # generated_text = generated_text.replace("<|im_start|>", "").replace(
+    #     "<|im_end|>", ""
+    # )
+    # inputs.append({"role": "assitant", "content": generated_text})
 
-    for generated_text in stream_response(
-        history=inputs,
-        history_temple=previous_output_text,
-        max_output_length=max_output_length,
-        model=model,
-        tokenizer=tokenizer,
-        end_token=eos_token_id,
-    ):
-        print(generated_text)
-        previous_output_text = generated_text
+    # inputs.append({"role": "user", "content": "你是谁？"})
+    # previous_output_text += tokenizer.apply_chat_template(
+    #     inputs,
+    #     tokenize=False,
+    #     add_generation_prompt=False,
+    # )
+    # print(previous_output_text)
+
+    # for generated_text in stream_response(
+    #     history=inputs,
+    #     history_temple=previous_output_text,
+    #     max_output_length=max_output_length,
+    #     model=model,
+    #     tokenizer=tokenizer,
+    #     end_token=eos_token_id,
+    # ):
+    #     print(generated_text)
+    #     previous_output_text = generated_text

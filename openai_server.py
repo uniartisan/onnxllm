@@ -1,19 +1,13 @@
-from transformers import AutoModel, AutoTokenizer
-from torch.cuda import get_device_properties
 import uvicorn
 from fastapi.middleware.cors import CORSMiddleware
 from sse_starlette.sse import EventSourceResponse
 from pydantic import BaseModel
 from typing import Optional
 from fastapi import FastAPI, Request, status, HTTPException
-import subprocess
 import time
-import sysconfig
 from typing import List
-import sys
-import re
+import threading
 import json
-import asyncio
 import os
 import gc
 import uuid
@@ -22,10 +16,37 @@ from contextlib import asynccontextmanager
 
 from utils.model import prepare_model, stream_response, generate
 
-
+chat_model = None
+tokenizer = None
+last_used_time = None
+unload_timer = 300  # Unload time in seconds (5 minutes)
+stop_threads = False
 def init_model(modelpath):
-    global tokenizer, chat_model
-    chat_model, tokenizer = prepare_model(modelpath)
+    global tokenizer, chat_model, last_used_time
+    if chat_model is None:
+        chat_model, tokenizer = prepare_model(modelpath)
+        print("Model loaded")
+    last_used_time = time.time()
+    
+
+
+def unload_model_background():
+    global chat_model, tokenizer
+    global stop_threads
+    while True:
+        if stop_threads: 
+            break
+        time.sleep(3)
+        if chat_model is not None and time.time() - last_used_time > unload_timer:
+            del chat_model, tokenizer
+            chat_model = None
+            tokenizer = None
+            print("Model unloaded")
+            gc.collect()  # Consider using del chat_model if necessary
+         
+        
+
+
 
 
 chatmodel_onnx = {
@@ -44,8 +65,23 @@ chatmodel_onnx = {
     "endoftext": "<|endoftext|>",
 }
 
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Load the ML model
+    global stop_threads
+    init_model("models\qwen1.5-7-Chat-avx2-quantizer")
+    # Start the background task in a separate asyncio task
+    unload_thread = threading.Thread(target=unload_model_background)
+    unload_thread.start()
+    yield    
 
-app = FastAPI()
+    # Ensure the thread is no longer running at program exit
+    stop_threads = True
+    gc.collect()
+    
+
+
+app = FastAPI(lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
@@ -55,7 +91,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-init_model("models\qwen1.5-7-Chat-avx2-quantizer")
+
 
 
 def ngrok_connect():
@@ -102,6 +138,9 @@ def read_root():
 
 @app.post("/v1/chat/completions")
 async def conversation(body: Body_OpenAI, request: Request):
+    if chat_model is None:
+        init_model("models\qwen1.5-7-Chat-avx2-quantizer")
+
     async def eval_openailike(history, top_p=0.7, temperature=0.95):
         result = {}
         result["id"] = str(uuid.uuid4())
@@ -159,8 +198,8 @@ async def conversation(body: Body_OpenAI, request: Request):
                 temperature=temperature,
             )
             choices0["message"]["content"] = response_re.replace(
-                chatmodel_onnx["im_start"], ""
-            ).replace(chatmodel_onnx["im_end"], "")
+                "<|im_start|>assistant", ""
+            ).replace("<|im_end|>", "")
             result["choices"] = [choices0]
             result["choices"][0]["finish_reason"] = "stop"
             yield json.dumps(result, sort_keys=True)
