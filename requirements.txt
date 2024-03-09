@@ -4,3 +4,5 @@ pydantic
 uvicorn
 sse_starlette
 pyngrok
+onnxruntime
+optimum git+https://github.com/uniartisan/optimum.git

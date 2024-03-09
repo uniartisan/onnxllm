@@ -47,7 +47,7 @@ if __name__ == "__main__":
         optimization_config = OptimizationConfig(optimization_level=args.opt)
         print("Exporting the OPT model to ONNX...")
         optimizer.optimize(save_dir=save_directory+"-opt", optimization_config=optimization_config)
-    elif args.onnx == "false":
+    elif args.onnx == "true":
         print("Optimization is not enabled.")
         ort_model.save_pretrained(save_directory)
         tokenizer.save_pretrained(save_directory)
