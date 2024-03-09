@@ -9,7 +9,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--model", type=str, default="Qwen/Qwen1.5-7B-Chat")
     parser.add_argument("--save_dir", type=str, default="models/qwen1.5-7-Chat")
-    parser.add_argument("--onnx", type=bool, default=True, help="Export to ONNX format.")
+    parser.add_argument("--onnx", type=str, default="", help="Export pytorch to ONNX format.")
     parser.add_argument(
         "--quantize",
         type=str,
@@ -18,7 +18,7 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
     save_directory = parser.parse_args().save_dir
-    if args.onnx:
+    if bool(args.onnx) == True:
         # Load a model from transformers and export it to ONNX
         ort_model = ORTModelForCausalLM.from_pretrained(
             args.model, export=True, task="text-generation-with-past"

@@ -121,17 +121,19 @@ async def conversation(body: Body_OpenAI, request: Request):
                 end_token=tokenizer.encode("<|endoftext|>")[0],
                 im_stop_token=tokenizer.encode("<|im_end|>")[0],
                 top_p=top_p,
-                temperature=temperature,             
+                temperature=temperature,
             ):
-                response_re = response_re.replace(
-                    chatmodel_onnx["im_start"], ""
-                ).replace(chatmodel_onnx["im_end"], "")
+                response_re = (
+                    response_re.replace(chatmodel_onnx["im_start"], "")
+                    .replace(chatmodel_onnx["im_end"], "")
+                    .replace(chatmodel_onnx["endoftext"], "")
+                )
                 # print(response_re)
                 if await request.is_disconnected():
                     gc.collect()
                     # print("disconnect")
                     # print(time.time() - a)
-                    return
+                    break
 
                 choices0["delta"] = {"content": response_re[len(origin) :]}
                 origin = response_re
@@ -172,11 +174,8 @@ async def conversation(body: Body_OpenAI, request: Request):
     if len(question_messages) == 0:
         raise HTTPException(status.HTTP_400_BAD_REQUEST, "No Question Found")
 
-
-
     Prompt_system = "你是 Karvis，一个由 Minisforum Inc 开发的内置于 Minisforum PC 中的大型语言模型。请你尽全力回答用户的问题。"
     history = [{"role": "system", "content": Prompt_system}]
-
 
     for i in question_messages:
         history.append(i)

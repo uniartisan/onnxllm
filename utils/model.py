@@ -63,7 +63,7 @@ def stream_response(
             generated_text = tokenizer.decode(outputs[0][:end_token_position])
             output_text = generated_text[previous_output_text_len :]
             yield output_text
-            print(output_text)
+            # print(output_text)
             break # 结束
 
         # 将生成的文本解码
@@ -84,7 +84,7 @@ def stream_response(
 
             # 提取 end_token 之前的内容
             generated_text = tokenizer.decode(outputs[0][:last_im_stop_token_position])
-            print(generated_text)
+            # print(generated_text)
             output_text = generated_text[previous_output_text_len:]
             yield output_text
             return  # 结束
