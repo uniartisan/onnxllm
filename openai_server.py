@@ -69,7 +69,7 @@ chatmodel_onnx = {
 async def lifespan(app: FastAPI):
     # Load the ML model
     global stop_threads
-    init_model(r"models/qwen1.5-1.8-avx2-quantizer")
+    init_model(r"models/qwen1.5-1.8-Chat-avx512_vnni-quantizer")
     # Start the background task in a separate asyncio task
     unload_thread = threading.Thread(target=unload_model_background)
     unload_thread.start()
@@ -139,7 +139,7 @@ def read_root():
 @app.post("/v1/chat/completions")
 async def conversation(body: Body_OpenAI, request: Request):
     if chat_model is None:
-        init_model("models/qwen1.5-1.8-avx2-quantizer")
+        init_model(r"models/qwen1.5-1.8-Chat-avx512_vnni-quantizer")
 
     async def eval_openailike(history, top_p=0.7, temperature=0.95):
         result = {}

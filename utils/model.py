@@ -7,7 +7,7 @@ from transformers import TextIteratorStreamer, TextStreamer
 
 def prepare_model(model_path, provider=None):
     if provider is None:
-        provider = "CPUExecutionProvider"
+        provider = 'CPUExecutionProvider'
     else:
         pass
     # Load a model from transformers and export it to ONNX
