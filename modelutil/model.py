@@ -5,14 +5,14 @@ from transformers import TextIteratorStreamer, TextStreamer
 # import torch
 
 
-def prepare_model(model_path, provider=None, config_path = "vaip_config.json"):
+def prepare_model(model_path, provider=None, config_path = r"C:\\Users\\V3\\onnxllm\\modelutil\\vaip_config.json"):
     if provider is None:
-        provider = ['VitisAIExecutionProvider']
-        provider_options = {'config_file': config_path}
+        provider = 'VitisAIExecutionProvider'
+        provider_options = {'config_file': str(config_path)}
     else:
         pass
     # Load a model from transformers and export it to ONNX
-    model = ORTModelForCausalLM.from_pretrained(model_path)
+    model = ORTModelForCausalLM.from_pretrained(model_path, provider=provider, provider_options=provider_options)
     tokenizer = AutoTokenizer.from_pretrained(model_path, padding_side="left")
     chat = [
         {"role": "user", "content": "Hello, how are you?"},
@@ -113,8 +113,8 @@ if __name__ == "__main__":
     print(parent_dir)
     from amd_opt import get_aie_model
 
-    model, tokenizer = get_aie_model()
-    
+    model, tokenizer = prepare_model(r"C:\\Users\\V3\\onnxllm\\models\\qwen1.5-1.8-Chat-avx512_vnni-quantizer")
+    # model, tokenizer = get_aie_model()   
 
     # 结束符号的token id
     eos_token_id = tokenizer.encode("<|endoftext|>")[0]

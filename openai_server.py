@@ -25,7 +25,7 @@ stop_threads = False
 def init_model(modelpath):
     global tokenizer, chat_model, last_used_time
     if chat_model is None:
-        chat_model, tokenizer = get_aie_model()
+        chat_model, tokenizer = prepare_model(modelpath)
         print("Model loaded")
     last_used_time = time.time()
     
