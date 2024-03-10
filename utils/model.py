@@ -21,7 +21,7 @@ def prepare_model(model_path, provider=None):
     temple = tokenizer.apply_chat_template(
         chat,
         tokenize=False,
-        add_generation_prompt=False,
+        add_generation_prompt=True,
         padding=True,
     )
     # print(temple)
@@ -49,10 +49,9 @@ def stream_response(
     if im_stop_token is None:
         im_stop_token = tokenizer.encode("<|im_end|>")[0]
     if history_temple is None:
-        texts = tokenizer.apply_chat_template(history, tokenize=False, padding=True)
+        texts = tokenizer.apply_chat_template(history, tokenize=False, padding=True, add_generation_prompt=True,)
     else:
         texts = history_temple
-    texts += "<|im_start|>assistant"
 
     input_ids = tokenizer(texts, return_tensors="pt")
     generation_kwargs = dict(input_ids, streamer=streamer, max_new_tokens=max_output_length, 
@@ -63,7 +62,7 @@ def stream_response(
     generated_text = ""
     for new_text in streamer:
         generated_text += new_text
-        yield generated_text[previous_output_text_len:-len("<|im_end|>")]
+        yield generated_text[previous_output_text_len:].replace("<|im_end|>", "")
 
 
 
@@ -150,26 +149,3 @@ if __name__ == "__main__":
     )
     inputs.append({"role": "assitant", "content": generated_text})
         
-    # generated_text = generated_text.replace("<|im_start|>", "").replace(
-    #     "<|im_end|>", ""
-    # )
-    # inputs.append({"role": "assitant", "content": generated_text})
-
-    # inputs.append({"role": "user", "content": "你是谁？"})
-    # previous_output_text += tokenizer.apply_chat_template(
-    #     inputs,
-    #     tokenize=False,
-    #     add_generation_prompt=False,
-    # )
-    # print(previous_output_text)
-
-    # for generated_text in stream_response(
-    #     history=inputs,
-    #     history_temple=previous_output_text,
-    #     max_output_length=max_output_length,
-    #     model=model,
-    #     tokenizer=tokenizer,
-    #     end_token=eos_token_id,
-    # ):
-    #     print(generated_text)
-    #     previous_output_text = generated_text
