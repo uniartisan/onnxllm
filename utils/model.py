@@ -84,7 +84,7 @@ def generate(
     if im_stop_token is None:
         im_stop_token = tokenizer.encode("<|im_end|>")[0]
     if history_temple is None:
-        texts = tokenizer.apply_chat_template(history, tokenize=False)
+        texts = tokenizer.apply_chat_template(history, tokenize=False, padding=True, add_generation_prompt=True,)
     else:
         texts = history_temple
     previous_output_text_len = len(texts)
@@ -95,7 +95,7 @@ def generate(
 
     # 将生成的文本解码
     generated_text = tokenizer.decode(outputs[0])
-    output_text = generated_text[previous_output_text_len + 1 :]
+    output_text = generated_text[previous_output_text_len:].replace("<|im_end|>", "")
 
     # 继续生成文本
     # 将文本转换为模型可接受的输入格式
