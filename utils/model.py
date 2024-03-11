@@ -25,6 +25,13 @@ def prepare_model(model_path, provider=None):
         padding=True,
     )
     # print(temple)
+    generated_text = generate(
+        history=chat,
+        output_length=30,
+        model=model,
+        tokenizer=tokenizer,
+    )
+    # print(generated_text)
     return model, tokenizer
 
 
@@ -110,8 +117,7 @@ if __name__ == "__main__":
     current_dir = os.getcwd()
     parent_dir = current_dir.rsplit("/", 1)[0]
     print(parent_dir)
-
-    model, tokenizer = prepare_model("models/qwen1.5-1.8-avx2-quantizer")
+    model, tokenizer = prepare_model(os.path.join(parent_dir,"models\qwen1.5-1.8-Chat-avx512_vnni-quantizer"))
     
 
     # 结束符号的token id
@@ -138,8 +144,8 @@ if __name__ == "__main__":
         end_token=eos_token_id,
     ):
         print(generated_text)
-        
-        
+    
+    
     generated_text = generated_text.replace("<|im_start|>", "").replace(
         "<|im_end|>", ""
     )

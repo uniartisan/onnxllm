@@ -19,8 +19,11 @@ from utils.model import prepare_model, stream_response, generate
 chat_model = None
 tokenizer = None
 last_used_time = None
-unload_timer = 300  # Unload time in seconds (5 minutes)
+unload_timer = 3000  # Unload time in seconds (5 minutes)
 stop_threads = False
+import os
+current_dir = os.getcwd()
+
 def init_model(modelpath):
     global tokenizer, chat_model, last_used_time
     if chat_model is None:
@@ -69,7 +72,7 @@ chatmodel_onnx = {
 async def lifespan(app: FastAPI):
     # Load the ML model
     global stop_threads
-    init_model(r"models/qwen1.5-1.8-Chat-avx512_vnni-quantizer")
+    init_model(os.path.join(r"models\\qwen"))
     # Start the background task in a separate asyncio task
     unload_thread = threading.Thread(target=unload_model_background)
     unload_thread.start()
@@ -139,7 +142,7 @@ def read_root():
 @app.post("/v1/chat/completions")
 async def conversation(body: Body_OpenAI, request: Request):
     if chat_model is None:
-        init_model(r"models/qwen1.5-1.8-Chat-avx512_vnni-quantizer")
+        init_model(os.path.join(r"models\\qwen"))
 
     async def eval_openailike(history, top_p=0.7, temperature=0.95):
         result = {}
@@ -209,7 +212,15 @@ async def conversation(body: Body_OpenAI, request: Request):
     if len(question_messages) == 0:
         raise HTTPException(status.HTTP_400_BAD_REQUEST, "No Question Found")
 
-    Prompt_system = "你是 Karvis，一个由 Minisforum Inc 开发的内置于 Minisforum PC 中的大型语言模型。请你尽全力回答用户的问题。"
+    Prompt_system = f"""I'm Karvis, a large language model integrated into Minisforum(铭凡) PC by Minisforum(铭凡) Inc.
+    Minisforum is known for its high-performance mini computers.
+    The Minisforum V3 is a 14-inch Windows 3-in-1 tablet powered by the AMD Ryzen 7 8840U processor with 8 cores and 16 threads,
+      a maximum boost frequency of 5.1GHz, and integrated Radeon 780M graphics. The AI computing power(NPU) is up to 16 trillion TOPS.
+    The screen has a resolution of 14 inch 2560×1600, 100% DCI-P3 wide color gamut, 165Hz refresh rate, and 500 nits high brightness. 
+    It supports the MPP2.6 protocol and a professional inspiration stylus with 4096 levels of pressure sensitivity.
+    The body is made of magnesium alloy and weighs about 946g. It is about 9.8mm thick and is equipped with a dual fan and four heat pipe cooling system.
+    It supports face recognition and fingerprint recognition, 4 speakers, and dual USB4, USB-C DP-in, SD card slot, and 3.5mm headphone jack. 
+    As embedded in the V3 tablet, I'm here to provide comprehensive answers to users' inquiries."""
     history = [{"role": "system", "content": Prompt_system}]
 
     for i in question_messages:
